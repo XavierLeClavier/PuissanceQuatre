@@ -7,12 +7,12 @@
 int main()
 {
     char* columns = "1234567"; // columns
-    char L1[] = "_______";
-    char L2[] = "_______";
-    char L3[] = "_______";
-    char L4[] = "_______";
-    char L5[] = "_______";
-    char L6[] = "_______";
+    char* L1[] = "_______";
+    char* L2[] = "_______";
+    char* L3[] = "_______";
+    char* L4[] = "_______";
+    char* L5[] = "_______";
+    char* L6[] = "_______";
     char* templine;
     char arrayoflines[7] = {columns, L1, L2, L3, L4, L5, L6};
 
@@ -103,6 +103,54 @@ int main()
                 }
             }
         }
+
+        //...in the right diagonals
+        if (play == true)
+        {
+            for(i=5; i>2; i--)
+            {
+                for(j=0; j<4; j++)
+                {
+                    if (arrayoflines[i][j] == arrayoflines[i-1][j+1] && arrayoflines[i][j] == arrayoflines[i-2][j+2] arrayoflines[i][j] == arrayoflines[i-3][j+3])
+                    {    
+                        if (arrayoflines[j][i] == 'X')
+                        {
+                            printf("Bravo %s, vous avez gagné !\n", player1);
+                            play = false;
+                        }
+                        else if (arrayoflines[j][i] == 'O')
+                        {
+                            printf("Bravo %s, vous avez gagné !\n", player2);
+                            play = false;
+                        }
+                    }
+                }
+            }
+        }
+        //...in the left diagonals //unfinished!
+        if (play == true)
+        {
+            for(i=5; i>2; i--)
+            {
+                for(j=3; j<7; j++)
+                {
+                    if (arrayoflines[i][j] == arrayoflines[i-1][j-1] && arrayoflines[i][j] == arrayoflines[i-2][j-2] && arrayoflines[i][j] == arrayoflines[i-3][j-3])
+                    {
+                        if (arrayoflines[j][i] == 'X')
+                        {
+                            printf("Bravo %s, vous avez gagné !\n", player1);
+                            play = false;
+                        }
+                        else if (arrayoflines[j][i] == 'O')
+                        {
+                            printf("Bravo %s, vous avez gagné !\n", player2);
+                            play = false;
+                        }
+                    }
+                }
+            }
+        }
+
     }
     return 0;
 }
